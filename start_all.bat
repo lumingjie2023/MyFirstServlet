@@ -4,14 +4,17 @@ echo   大学成绩管理系统 - 一键启动
 echo ========================================
 echo.
 echo 正在启动后端服务...
-start "后端服务" cmd /k cd /d C:\Users\hhxh_\Documents\trae_projects\MyFirstServlet\backend ^& echo 正在启动后端服务... ^& "C:\Program Files\Maven\apache-maven-3.9.16-bin\apache-maven-3.9.16\bin\mvn.cmd" clean compile spring-boot:run
+cd /d "%~dp0backend"
+start "后端服务" cmd /k "C:\Program Files\Maven\apache-maven-3.9.16-bin\apache-maven-3.9.16\bin\mvn.cmd" clean compile spring-boot:run
 echo.
 echo 等待后端启动完成（约15秒）...
 timeout /t 15 /nobreak
 echo.
 echo 正在启动前端服务...
-start "前端服务" cmd /k cd /d C:\Users\hhxh_\Documents\trae_projects\MyFirstServlet\frontend ^& echo 正在启动前端服务... ^& npm run dev
+cd /d "%~dp0frontend"
+start "前端服务" cmd /k npm run dev
 echo.
+cd /d "%~dp0"
 echo ========================================
 echo   启动完成！
 echo ========================================
