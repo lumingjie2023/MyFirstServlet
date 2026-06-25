@@ -1,0 +1,12 @@
+
+version: '3.8'
+
+services:
+  gradebook:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./example_db.sqlite:/app/example_db.sqlite
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
